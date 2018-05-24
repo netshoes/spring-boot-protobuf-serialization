@@ -1,0 +1,26 @@
+syntax = "proto3";
+package com.article.springbootserialization.proto;
+
+option java_outer_classname = "OrdersProto";
+
+message Orders {
+    repeated Order orders = 1;
+}
+
+message Order {
+    string orderId = 1;
+    Person person = 2;
+    repeated Product product = 3;
+}
+message Person {
+    string name = 1;
+}
+message Product {
+    string id = 1;
+    int32 priceInCents = 2;
+    ProductType productType = 3;
+    enum ProductType {
+        GIFT = 0;
+        COMMON = 1;
+    }
+}
